@@ -5,7 +5,7 @@ class LoggerWrapper {
   private logger: Logger | null = null;
 
   getInitializeLogger(): Logger {
-    this.configureLogger({}, false);
+    this.configureLogger({ prettyPrint: true }, false);
     return this.logger!;
   }
 

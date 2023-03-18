@@ -2,8 +2,12 @@ import { config } from '@config';
 import { logger } from '@eshop/logger';
 import { modelsArray } from '@infra/database/models';
 import { Sequelize } from 'sequelize-typescript';
+import cls from 'cls-hooked';
 
 let dbConn: Sequelize;
+
+export const dbNamespace = cls.createNamespace('db-transaction');
+Object.getPrototypeOf(Sequelize).useCLS(dbNamespace);
 
 export default function getDBConn() {
   if (!dbConn) {
@@ -17,7 +21,7 @@ export default function getDBConn() {
         models: modelsArray,
         benchmark: true,
         logging: (sql: string, duration?: number) => {
-          logger.info(`RUN ${sql} in ${duration}`);
+          logger.info(`RUN ${sql} =>>>>> IN ${duration}`);
         },
         logQueryParameters: true,
         pool: {
