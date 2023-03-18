@@ -9,30 +9,10 @@ import getDBConn from '@infra/database/connection';
 
 let connection: Server;
 
-async function defineErrorHandlingMiddleware(expressApp: express.Application) {
-  expressApp.use(
-    async (
-      error: any,
-      req: express.Request,
-      res: express.Response,
-    ) => {
-      if (error && typeof error === 'object') {
-        if (error.isTrusted === undefined || error.isTrusted === null) {
-          error.isTrusted = true; // Error during a specific request is usually not fatal and should not lead to process exit
-        }
-      }
-      // centralize error handler
-      await errorHandler.handleError(error);
-      res.status(error?.HTTPStatus || 500).end();
-    }
-  );
-}
-
 export async function startWebServer(): Promise<AddressInfo> {
   // validate schema
   config.validate();
   // setup log
-
   logger.configureLogger(
     {
       prettyPrint: Boolean(
@@ -46,8 +26,8 @@ export async function startWebServer(): Promise<AddressInfo> {
   // setup db
   await getDBConn();
 
-  await defineErrorHandlingMiddleware(app);
-  return await openConnection(app);
+  const expressApp = app();
+  return await openConnection(expressApp);
 }
 
 export async function stopWebServer() {

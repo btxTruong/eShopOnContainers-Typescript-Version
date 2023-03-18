@@ -12,7 +12,7 @@
 "@eshop/error-handler@file:../../../libs/error-handler":
   version "0.0.1"
   dependencies:
-    "@eshop/logger" "file:../../../../../Library/Caches/Yarn/v6/npm-@eshop-error-handler-0.0.1-2264472b-01d3-4aaa-bb0f-041f6ade6067-1679151941000/node_modules/@eshop/logger"
+    "@eshop/logger" "file:../../../../../Library/Caches/Yarn/v6/npm-@eshop-error-handler-0.0.1-ecbfbaed-9701-466c-8163-25ade2cbe53d-1679155312107/node_modules/@eshop/logger"
     http-terminator "3.2.0"
 
 "@eshop/logger@file:../../../libs/logger":

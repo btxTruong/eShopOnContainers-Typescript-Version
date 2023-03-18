@@ -1,10 +1,10 @@
-import { Logger, LoggerConfiguration } from './definition';
-import PinoLogger from './pino.logger';
+import { Logger, pino } from 'pino';
+import { LoggerConfiguration } from './definition';
 
-class LoggerWrapper implements Logger {
+class LoggerWrapper {
   private logger: Logger | null = null;
 
-  private getInitializeLogger(): Logger {
+  getInitializeLogger(): Logger {
     this.configureLogger({}, false);
     return this.logger!;
   }
@@ -14,15 +14,27 @@ class LoggerWrapper implements Logger {
     overrideIfExists = true
   ): void {
     if (this.logger === null || overrideIfExists) {
-      this.logger = new PinoLogger(
-        configuration.level || 'info',
-        configuration.prettyPrint || false
+      this.logger = pino({
+          level: configuration.level ?? 'info',
+          transport: configuration.prettyPrint
+            ? {
+              target: 'pino-pretty',
+              options: {
+                colorize: true,
+                sync: true,
+              },
+            }
+            : undefined,
+          formatters: {
+            level: (label) => {
+              return { severity: label.toUpperCase() };
+            },
+          },
+          timestamp: pino.stdTimeFunctions.isoTime,
+          redact: configuration.redactPaths
+        }
       );
     }
-  }
-
-  resetLogger() {
-    this.logger = null;
   }
 
   debug(message: string, metadata?: object): void {
@@ -40,15 +52,14 @@ class LoggerWrapper implements Logger {
   }
 
   info(message: string, metadata?: object): void {
-    // If never initialized, the set default configuration
     this.getInitializeLogger().info(
       message,
       metadata
     );
   }
 
-  warning(message: string, metadata?: object): void {
-    this.getInitializeLogger().warning(
+  warn(message: string, metadata?: object): void {
+    this.getInitializeLogger().warn(
       message,
       metadata
     );

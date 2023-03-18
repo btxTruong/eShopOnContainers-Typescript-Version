@@ -4,7 +4,8 @@
   "description": "Eshop built on container based on .NET project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "presetup": "(cd libs/error-handler && rm -rf dist && rm -rf node_modules) && (cd libs/logger && rm -rf dist && rm -rf node_modules) && (cd libs/validator && rm -rf dist && rm -rf node_modules)",
+    "setup": "(cd libs/error-handler && yarn install) && (cd libs/logger && yarn install) && (cd libs/validator && yarn install)"
   },
   "author": "Truong Bui",
   "license": "MIT",
@@ -16,6 +17,7 @@
     "eslint-config-prettier": "8.7.0",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.8.4",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "yarn": "1.22.19"
   }
 }
