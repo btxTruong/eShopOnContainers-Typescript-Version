@@ -4,12 +4,13 @@
   "description": "error handler for eshop",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "author": "Truong Bui",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "18.15.3"
+    "@types/node": "18.15.3",
+    "typescript": "4.9.5"
   },
   "dependencies": {
     "http-terminator": "3.2.0",

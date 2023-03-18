@@ -4,12 +4,15 @@
   "description": "logger for e-shop - customize source from https://github.com/practicajs/practica",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "author": "Truong Bui",
   "license": "MIT",
   "dependencies": {
     "pino": "8.11.0",
     "pino-pretty": "10.0.0"
+  },
+  "devDependencies": {
+    "typescript": "4.9.5"
   }
 }
