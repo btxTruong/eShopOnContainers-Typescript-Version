@@ -1,1 +1,1 @@
-export { routerV1 } from './router-v1';
+export { apiV1Route } from './api-v1-route';

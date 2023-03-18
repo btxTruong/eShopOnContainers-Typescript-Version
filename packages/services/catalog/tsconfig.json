@@ -13,10 +13,14 @@
     "outDir": "dist",
     "lib": ["es2017"],
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "@infra/*": ["src/infrastructure/*"],
-      "@config": ["src/config.ts"]
+      "@config": ["src/config.ts"],
+      "@entry-point/*": ["src/entry-points/*"],
+      "@domain/*": ["src/domain/**"],
+      "@swagger-document": ["src/swagger.json"]
     }
   },
   "include": [
@@ -26,5 +30,8 @@
     "node_modules",
     "examples",
     "test"
-  ]
+  ],
+  "ts-node": {
+    "transpileOnly": true
+  }
 }

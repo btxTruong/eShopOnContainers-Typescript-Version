@@ -1,0 +1,18 @@
+{
+  "name": "error-handler",
+  "version": "0.0.1",
+  "description": "error handler for eshop",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Truong Bui",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "18.15.3"
+  },
+  "dependencies": {
+    "http-terminator": "3.2.0",
+    "@eshop/logger": "file:../logger"
+  }
+}

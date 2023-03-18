@@ -9,6 +9,7 @@
   "author": "Truong Bui",
   "license": "MIT",
   "dependencies": {
-    "pino": "8.11.0"
+    "pino": "8.11.0",
+    "pino-pretty": "10.0.0"
   }
 }

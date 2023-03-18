@@ -1,13 +1,13 @@
 import convict from "convict";
 
 const config = convict({
-  deploymentEnv: {
+  env: {
     doc: 'The deployment env',
     format: ['dev', 'test', 'prod'],
     default: 'dev',
     env: 'DEPLOYMENT_ENV'
   },
-  env: {
+  nodeEnv: {
     doc: 'The application environment.',
     format: ['production', 'development', 'test'],
     default: 'development',
@@ -16,16 +16,32 @@ const config = convict({
   app: {
     port: {
       doc: 'The Express app port',
-      format: 'number',
-      default: 0,
+      format: Number,
+      default: 7000,
       nullable: true,
       env: 'APP_PORT'
     }
   },
+  logger: {
+    level: {
+      doc: 'Which type of logger',
+      format: ['debug', 'info', 'warn', 'error', 'critical'],
+      default: 'info',
+      nullable: false,
+      env: 'LOGGER_LEVEL',
+    },
+    prettyPrint: {
+      doc: 'Weather the logger should be configured to pretty print the output',
+      format: Boolean,
+      default: true,
+      nullable: false,
+      env: 'PRETTY_PRINT_LOG',
+    },
+  },
   db: {
     user: {
       doc: 'Database username',
-      format: 'string',
+      format: String,
       default: 'postgres',
       nullable: false,
       env: 'DB_USERNAME'
@@ -39,7 +55,7 @@ const config = convict({
     },
     password: {
       doc: 'DB password',
-      format: 'string',
+      format: String,
       sensitive: true,
       nullable: false,
       env: 'DB_PASSWORD',
@@ -47,15 +63,13 @@ const config = convict({
     },
     dbName: {
       doc: 'DB name',
-      format: 'string',
+      format: String,
       default: 'eshop',
       nullable: false,
       env: 'DB_NAME'
     }
   }
 });
-
-config.validate();
 
 export {
   config
