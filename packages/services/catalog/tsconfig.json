@@ -30,7 +30,7 @@
         "src/entry-points/*"
       ],
       "@domain/*": [
-        "src/domain/**"
+        "src/domain/*"
       ],
       "@swagger-document": [
         "src/swagger.json"
@@ -44,5 +44,8 @@
     "node_modules",
     "examples",
     "test"
-  ]
+  ],
+  "ts-node": {
+    "transpileOnly": true
+  }
 }

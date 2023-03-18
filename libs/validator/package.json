@@ -2,11 +2,12 @@
   "name": "validator",
   "version": "0.0.1",
   "description": "Validator Custom - inspired from https://github.com/practicajs/practica",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
-  "author": "Truong Bui",
+  "author": "T&B",
   "license": "MIT",
   "dependencies": {
     "ajv": "8.12.0"

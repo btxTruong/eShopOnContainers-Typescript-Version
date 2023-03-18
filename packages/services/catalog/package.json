@@ -7,7 +7,7 @@
     "build": "tsc",
     "start:dev": "nodemon"
   },
-  "author": "Truong Bui",
+  "author": "T&B",
   "license": "MIT",
   "dependencies": {
     "@eshop/error-handler": "file:../../../libs/error-handler",

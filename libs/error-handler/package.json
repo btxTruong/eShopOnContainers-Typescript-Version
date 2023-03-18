@@ -2,11 +2,12 @@
   "name": "error-handler",
   "version": "0.0.1",
   "description": "error handler for eshop",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
-  "author": "Truong Bui",
+  "author": "T&B",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "18.15.3",

@@ -12,7 +12,8 @@
     "pretty": true,
     "outDir": "dist",
     "lib": ["es2017"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "Node"
   },
   "include": [
     "src"

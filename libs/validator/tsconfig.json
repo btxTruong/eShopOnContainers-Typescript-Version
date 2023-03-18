@@ -12,7 +12,8 @@
     "skipLibCheck": true,
     "pretty": true,
     "outDir": "dist",
-    "lib": ["es2017"]
+    "lib": ["es2017"],
+    "moduleResolution": "Node"
   },
   "include": [
     "src"
