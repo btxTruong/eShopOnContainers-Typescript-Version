@@ -9,7 +9,7 @@ import getDBConn from '@infra/database/connection';
 
 let connection: Server;
 
-export async function startWebServer(): Promise<AddressInfo> {
+async function setupDeps() {
   // validate schema
   config.validate();
   // setup log
@@ -25,6 +25,11 @@ export async function startWebServer(): Promise<AddressInfo> {
   setAppNameForErrorHandling('catalog-service');
   // setup db
   await getDBConn();
+}
+
+export async function startWebServer(): Promise<AddressInfo> {
+  // setup dependencies before run server
+  await setupDeps();
 
   const expressApp = app();
   return await openConnection(expressApp);
