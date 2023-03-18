@@ -7,7 +7,7 @@
     "presetup": "(cd libs/error-handler && rm -rf dist && rm -rf node_modules) && (cd libs/logger && rm -rf dist && rm -rf node_modules) && (cd libs/validator && rm -rf dist && rm -rf node_modules)",
     "setup": "(cd libs/error-handler && yarn install) && (cd libs/logger && yarn install) && (cd libs/validator && yarn install)"
   },
-  "author": "Truong Bui",
+  "author": "T&B",
   "license": "MIT",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.54.1",

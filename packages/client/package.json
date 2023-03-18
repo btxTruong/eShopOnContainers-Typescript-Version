@@ -1,7 +1,7 @@
 {
   "name": "client",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "author": "T&B",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
