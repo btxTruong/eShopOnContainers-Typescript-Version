@@ -7,7 +7,7 @@ export const migrator = new Umzug({
   migrations: {
     glob: ['migrations/**/*.ts', { cwd: __dirname }],
   },
-  context: getDBConn(),
+  context: getDBConn().getQueryInterface(),
   storage: new SequelizeStorage({
     sequelize: getDBConn(),
   }),
