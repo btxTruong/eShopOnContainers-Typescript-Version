@@ -1,12 +1,21 @@
-import { Column, DataType, Model, PrimaryKey, Sequelize, Table } from 'sequelize-typescript';
+import {
+  AllowNull,
+  Column,
+  DataType,
+  Model,
+  PrimaryKey,
+  Sequelize,
+  Table
+} from 'sequelize-typescript';
 
-@Table({ underscored: true })
+@Table({ underscored: true, freezeTableName: true })
 export class BaseModel extends Model {
+  @AllowNull(false)
   @PrimaryKey
   @Column({
     primaryKey: true,
     defaultValue: Sequelize.fn('uuid_generate_v4'),
-    type: DataType.UUIDV4
+    type: DataType.INTEGER
   })
-  declare id: string;
+  declare id: string; // we have to use declare https://sequelize.org/docs/v6/core-concepts/model-basics/#caveat-with-public-class-fields
 }

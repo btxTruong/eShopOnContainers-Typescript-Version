@@ -1,5 +1,5 @@
 import { CatalogType } from './definitions/CatalogType';
-import { CatalogItem } from './definitions/CatalogItem';
 import { CatalogBrand } from './definitions/CatalogBrand';
+import { Catalog } from './definitions/Catalog';
 
-export const modelsArray = [CatalogType, CatalogItem, CatalogBrand];
+export const modelsArray = [CatalogType, Catalog, CatalogBrand];
