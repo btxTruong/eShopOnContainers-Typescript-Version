@@ -20,6 +20,13 @@ const config = convict({
       default: 7000,
       nullable: true,
       env: 'APP_PORT'
+    },
+    paginationPageSize: {
+      doc: 'Pagination page size default following some standard pagination https://www.django-rest-framework.org/api-guide/pagination/',
+      format: Number,
+      default: 10,
+      nullable: false,
+      env: 'PAGINATION_PAGE_SIZE'
     }
   },
   logger: {

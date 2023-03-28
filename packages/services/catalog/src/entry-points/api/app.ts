@@ -21,6 +21,9 @@ export function app() {
   app.get('/', async (req, res) => {
     res.redirect('/swagger/v1');
   });
+  app.get('/live', (req, res) => {
+    res.json({ message: 'yes' });
+  });
   app.use('/api/v1', apiV1Route);
   app.use('/swagger/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   app.use(async (error: any, req, res, _next) => {
