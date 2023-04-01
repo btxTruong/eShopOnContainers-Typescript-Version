@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  plugins: ['prettier', '@typescript-eslint'],
+  plugins: ['prettier', '@typescript-eslint', 'simple-import-sort'],
   rules: {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -24,6 +24,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-floating-promises': 'error',
-    '@typescript-eslint/no-misused-promises': 'error'
+    '@typescript-eslint/no-misused-promises': 'error',
+    "simple-import-sort/imports": "error",
   },
 };

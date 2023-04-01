@@ -3,7 +3,7 @@ import {
   getCatalogByIdRP, listCatalogBrandRP,
   listCatalogByNameRP,
   listCatalogByTypeAndBrandRP,
-  listCatalogRP, listCatalogTypeRP
+  listCatalogRP, listCatalogTypeRP, createCatalogRP, deleteCatalogRP
 } from '@domain/catalog/catalog-repo';
 import { isDefined } from '../../utils/type';
 import httpErrors from 'http-errors';
@@ -53,9 +53,18 @@ export async function updateCatalogUC(catalogToUpdate: Partial<Catalog>) {
 }
 
 export async function createCatalogUC(catalogToCreate: Partial<Catalog>) {
+  const catalogFields = {
+    catalogBrandId: catalogToCreate.catalogBrandId,
+    catalogTypeId: catalogToCreate.catalogTypeId,
+    description: catalogToCreate.description,
+    name: catalogToCreate.name,
+    pictureFileName: catalogToCreate.pictureFilename,
+    price: catalogToCreate.price,
+  };
 
+  return await createCatalogRP(catalogFields);
 }
 
 export async function deleteCatalogUC(catalogId: number) {
-
+  return await deleteCatalogRP(catalogId)
 }

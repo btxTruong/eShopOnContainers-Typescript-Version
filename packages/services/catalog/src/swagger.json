@@ -7,9 +7,34 @@
   },
   "servers": [
     {
-      "url": "https"
+      "url": "http://localhost:7000",
+      "description": "Development server"
     }
   ],
   "paths": {
+    "/live": {
+      "get": {
+        "summary": "Get live status",
+        "description": "Get live status",
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "yes"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

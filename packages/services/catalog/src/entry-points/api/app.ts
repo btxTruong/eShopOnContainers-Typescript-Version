@@ -6,6 +6,7 @@ import { apiV1Route } from './routes';
 import { logger } from '@eshop/logger';
 import PinoHttp from 'pino-http';
 import { errorHandler } from '@eshop/error-handler';
+import * as OpenApiValidator from 'express-openapi-validator';
 
 export function app() {
   const app = express();
@@ -18,11 +19,18 @@ export function app() {
     level: 'info'
   }));
 
+  app.use(
+    OpenApiValidator.middleware({
+      apiSpec: '@swagger-document',
+      validateRequests: true
+    }),
+  );
+
   app.get('/', async (req, res) => {
     res.redirect('/swagger/v1');
   });
   app.get('/live', (req, res) => {
-    res.json({ message: 'yes' });
+    res.status(200).json({ message: 'yes' });
   });
   app.use('/api/v1', apiV1Route);
   app.use('/swagger/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
