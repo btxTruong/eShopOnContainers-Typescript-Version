@@ -1,8 +1,7 @@
 # eShopOnContainers
 Typescript version of eShopOnContainers of https://github.com/dotnet-architecture/eShopOnContainers
 
-# Steps to run the project
-- Run command to install all libs
+# Setup the project
 ```
-npm run setup
+yarn install
 ```
