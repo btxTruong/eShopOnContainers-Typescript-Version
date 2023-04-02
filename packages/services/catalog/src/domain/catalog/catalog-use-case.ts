@@ -1,12 +1,17 @@
-import { Catalog } from '@infra/database/models/definitions/Catalog';
 import {
-  getCatalogByIdRP, listCatalogBrandRP,
+  createCatalogRP,
+  deleteCatalogRP,
+  getCatalogByIdRP,
+  listCatalogBrandRP,
   listCatalogByNameRP,
   listCatalogByTypeAndBrandRP,
-  listCatalogRP, listCatalogTypeRP, createCatalogRP, deleteCatalogRP
+  listCatalogRP,
+  listCatalogTypeRP
 } from '@domain/catalog/catalog-repo';
-import { isDefined } from '../../utils/type';
+import { Catalog } from '@infra/database/models/definitions/Catalog';
 import httpErrors from 'http-errors';
+
+import { isDefined } from '../../utils/type';
 
 export async function listCatalogs(pageSize: number, pageIndex: number) {
   return await listCatalogRP(pageSize, pageIndex);
@@ -20,11 +25,20 @@ export async function listCatalogsByNameUC(name: string, pageSize: number, pageI
   return await listCatalogByNameRP(name, pageSize, pageIndex);
 }
 
-export async function listCatalogByTypeAndBrandUC(pageSize: number, pageIndex: number, catalogTypeId: number, catalogBrandId?: number) {
+export async function listCatalogByTypeAndBrandUC(
+  pageSize: number,
+  pageIndex: number,
+  catalogTypeId: number,
+  catalogBrandId?: number
+) {
   return await listCatalogByTypeAndBrandRP(pageSize, pageIndex, catalogTypeId, catalogBrandId);
 }
 
-export async function listCatalogByBrandUC(pageSize: number, pageIndex: number, catalogBrandId: number) {
+export async function listCatalogByBrandUC(
+  pageSize: number,
+  pageIndex: number,
+  catalogBrandId: number
+) {
   return await listCatalogByTypeAndBrandRP(pageSize, pageIndex, undefined, catalogBrandId);
 }
 
@@ -40,10 +54,10 @@ export async function updateCatalogUC(catalogToUpdate: Partial<Catalog>) {
   const catalog = await getCatalogByIdRP(catalogToUpdate.id!, true);
 
   if (!isDefined(catalog)) {
-    new httpErrors.NotFound(`Catalog with id ${catalogToUpdate.id} not found`);
+    throw new httpErrors.NotFound(`Catalog with id ${catalogToUpdate.id} not found`);
   }
   const oldPrice = catalog?.price;
-  const shouldRaiseProductPriceChangedEvent = oldPrice != catalogToUpdate.price;
+  const shouldRaiseProductPriceChangedEvent = oldPrice !== catalogToUpdate.price;
 
   await catalog?.update(catalogToUpdate);
 
@@ -59,12 +73,12 @@ export async function createCatalogUC(catalogToCreate: Partial<Catalog>) {
     description: catalogToCreate.description,
     name: catalogToCreate.name,
     pictureFileName: catalogToCreate.pictureFilename,
-    price: catalogToCreate.price,
+    price: catalogToCreate.price
   };
 
   return await createCatalogRP(catalogFields);
 }
 
 export async function deleteCatalogUC(catalogId: number) {
-  return await deleteCatalogRP(catalogId)
+  return await deleteCatalogRP(catalogId);
 }

@@ -7,6 +7,7 @@ import {
   ForeignKey,
   Table
 } from 'sequelize-typescript';
+
 import { BaseModel } from './Base';
 import { CatalogBrand } from './CatalogBrand';
 import { CatalogType } from './CatalogType';

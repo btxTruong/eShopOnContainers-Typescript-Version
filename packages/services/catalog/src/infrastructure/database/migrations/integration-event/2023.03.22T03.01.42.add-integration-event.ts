@@ -10,7 +10,7 @@ export async function up({ context }: { context: QueryInterface }) {
     id: {
       allowNull: false,
       primaryKey: true,
-      type: UUID,
+      type: UUID
     },
     content: {
       allowNull: false,

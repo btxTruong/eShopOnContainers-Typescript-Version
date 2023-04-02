@@ -1,0 +1,31 @@
+{
+  "name": "@eshop/error-handler",
+  "version": "0.0.1",
+  "description": "error handler for eshop",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "packageManager": "yarn@1.22.19",
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "npm run build",
+    "-------------------- package management -------------------": "",
+    "package:check": "ncu -u",
+    "-------------------- test -------------------": "",
+    "test": "echo 1",
+    "-------------------- lint -------------------": "",
+    "lint": "eslint --ext .ts src --report-unused-disable-directives",
+    "lint:fix": "eslint --ext .ts src --fix --report-unused-disable-directives"
+  },
+  "author": "Truong Bui",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "18.15.11",
+    "@eshop/tsconfig": "*",
+    "@eshop/eslint-config-standard": "*"
+  },
+  "dependencies": {
+    "http-terminator": "3.2.0",
+    "@eshop/logger": "*"
+  }
+}

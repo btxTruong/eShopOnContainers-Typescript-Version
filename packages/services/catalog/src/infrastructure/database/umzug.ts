@@ -1,26 +1,27 @@
-import { Umzug, SequelizeStorage } from 'umzug';
-import getDBConn from '@infra/database/connection';
 import { logger } from '@eshop/logger';
+import getDBConn from '@infra/database/connection';
+import { SequelizeStorage, Umzug } from 'umzug';
 
 export const migrator = new Umzug({
   migrations: {
     glob: ['migrations/**/*.ts', { cwd: __dirname }],
     resolve: ({ name, path, context }) => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require
       const migration = require(path!);
       return {
         name,
         up: async () => getDBConn().transaction((t1) => migration.up({ context })),
-        down: async () => getDBConn().transaction((t1) => migration.down({ context })),
+        down: async () => getDBConn().transaction((t1) => migration.down({ context }))
       };
-    },
+    }
   },
   context: getDBConn().getQueryInterface(),
   storage: new SequelizeStorage({
-    sequelize: getDBConn(),
+    sequelize: getDBConn()
   }),
   logger: logger.getInitializeLogger(),
   create: {
-    template: filepath => [
+    template: (filepath) => [
       [
         filepath,
         `import { QueryInterface } from 'sequelize';

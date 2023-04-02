@@ -1,25 +1,37 @@
 {
-  "name": "eshop-on-container",
+  "name": "@eshop/monorepo",
   "version": "0.0.1",
   "description": "Eshop built on container based on .NET project",
   "main": "index.js",
   "scripts": {
-    "presetup": "(cd libs/error-handler && rm -rf dist && rm -rf node_modules) && (cd libs/logger && rm -rf dist && rm -rf node_modules) && (cd libs/validator && rm -rf dist && rm -rf node_modules)",
-    "setup": "(cd libs/error-handler && yarn install) && (cd libs/logger && yarn install) && (cd libs/validator && yarn install)"
+    "prepare": "husky install",
+    "-------------------- build -------------------": "",
+    "build": "lerna run build",
+    "-------------------- package management -------------------": "",
+    "package:check:root": "ncu -u",
+    "package:check": "lerna run package:check",
+    "-------------------- test -------------------": "",
+    "test": "lerna run test",
+    "-------------------- lint -------------------": "",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix"
   },
-  "author": "T&B",
+  "author": "Truong Bui",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "5.54.1",
-    "@typescript-eslint/parser": "5.54.1",
-    "eslint": "8.36.0",
-    "eslint-config-airbnb-base": "15.0.0",
-    "eslint-config-prettier": "8.7.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-simple-import-sort": "10.0.0",
-    "lint-staged": "13.2.0",
-    "prettier": "2.8.4",
-    "typescript": "4.9.5",
-    "yarn": "1.22.19"
-  }
+    "husky": "8.0.3",
+    "lerna": "6.6.1",
+    "npm-check-updates": "16.9.0",
+    "prettier": "2.8.7",
+    "typescript": "5.0.3",
+    "yarn": "1.22.19",
+    "eslint": "8.37.0"
+  },
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "packages/libs/*",
+    "packages/services/*",
+    "packages/web-apps/*"
+  ]
 }

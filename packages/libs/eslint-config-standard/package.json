@@ -1,0 +1,15 @@
+{
+  "name": "@eshop/eslint-config-standard",
+  "main": "index.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "5.57.0",
+    "@typescript-eslint/parser": "5.57.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-import-resolver-typescript": "3.5.4"
+  }
+}

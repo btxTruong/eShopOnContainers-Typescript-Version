@@ -1,20 +1,18 @@
 import { Catalog } from '@infra/database/models/definitions/Catalog';
-import { genDefaultParams, genPaginationParams } from '../../utils/database';
 import { CatalogBrand } from '@infra/database/models/definitions/CatalogBrand';
 import { CatalogType } from '@infra/database/models/definitions/CatalogType';
+
+import { genDefaultParams, genPaginationParams } from '../../utils/database';
 
 export async function listCatalogRP(pageSize: number, pageIndex: number) {
   return await Catalog.findAll({
     ...genPaginationParams(pageSize, pageIndex),
     ...genDefaultParams(),
-    include: [
-      CatalogBrand,
-      CatalogType
-    ]
+    include: [CatalogBrand, CatalogType]
   });
 }
 
-export async function getCatalogByIdRP(id: number, raw: boolean = false) {
+export async function getCatalogByIdRP(id: number, raw = false) {
   const include = raw ? [] : [CatalogBrand, CatalogType];
   return await Catalog.findByPk(id, {
     ...genDefaultParams(),
@@ -25,18 +23,20 @@ export async function getCatalogByIdRP(id: number, raw: boolean = false) {
 export async function listCatalogByNameRP(name: string, pageSize: number, pageIndex: number) {
   return await Catalog.findOne({
     where: {
-      name: name
+      name
     },
     ...genDefaultParams(),
     ...genPaginationParams(pageSize, pageIndex),
-    include: [
-      CatalogBrand,
-      CatalogType
-    ]
+    include: [CatalogBrand, CatalogType]
   });
 }
 
-export async function listCatalogByTypeAndBrandRP(pageSize: number, pageIndex: number, catalogTypeId?: number, catalogBrandId?: number) {
+export async function listCatalogByTypeAndBrandRP(
+  pageSize: number,
+  pageIndex: number,
+  catalogTypeId?: number,
+  catalogBrandId?: number
+) {
   return await Catalog.findAll({
     where: {
       catalogTypeId,
@@ -44,10 +44,7 @@ export async function listCatalogByTypeAndBrandRP(pageSize: number, pageIndex: n
     },
     ...genDefaultParams(),
     ...genPaginationParams(pageSize, pageIndex),
-    include: [
-      CatalogBrand,
-      CatalogType
-    ]
+    include: [CatalogBrand, CatalogType]
   });
 }
 
@@ -65,7 +62,8 @@ export async function listCatalogTypeRP() {
 
 export async function updateCatalogRP(catalogToUpdate: Partial<Catalog>) {
   return await Catalog.update(catalogToUpdate, {
-    where: { id: catalogToUpdate.id }, ...genDefaultParams(),
+    where: { id: catalogToUpdate.id },
+    ...genDefaultParams(),
     returning: true
   });
 }

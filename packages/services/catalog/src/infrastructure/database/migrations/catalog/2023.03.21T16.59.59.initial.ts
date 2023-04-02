@@ -12,14 +12,16 @@ export async function up({ context }: { context: QueryInterface }) {
       INCREMENT 10;
   `);
 
-  await context.createTable({
+  await context.createTable(
+    {
       tableName: 'catalog_brands'
-    }, {
+    },
+    {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: INTEGER,
+        type: INTEGER
       },
       brand: {
         allowNull: false,
@@ -28,14 +30,16 @@ export async function up({ context }: { context: QueryInterface }) {
     }
   );
 
-  await context.createTable({
+  await context.createTable(
+    {
       tableName: 'catalog_types'
-    }, {
+    },
+    {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: INTEGER,
+        type: INTEGER
       },
       type: {
         allowNull: false,
@@ -44,14 +48,16 @@ export async function up({ context }: { context: QueryInterface }) {
     }
   );
 
-  await context.createTable({
+  await context.createTable(
+    {
       tableName: 'catalogs'
-    }, {
+    },
+    {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: INTEGER,
+        type: INTEGER
       },
       type: {
         allowNull: false,
@@ -65,7 +71,7 @@ export async function up({ context }: { context: QueryInterface }) {
           key: 'id'
         },
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       catalog_type_id: {
         type: INTEGER,
@@ -75,7 +81,7 @@ export async function up({ context }: { context: QueryInterface }) {
           key: 'id'
         },
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       description: {
         type: STRING

@@ -1,4 +1,4 @@
-import convict from "convict";
+import convict from 'convict';
 
 const config = convict({
   env: {
@@ -35,15 +35,15 @@ const config = convict({
       format: ['debug', 'info', 'warn', 'error', 'critical'],
       default: 'info',
       nullable: false,
-      env: 'LOGGER_LEVEL',
+      env: 'LOGGER_LEVEL'
     },
     prettyPrint: {
       doc: 'Weather the logger should be configured to pretty print the output',
       format: Boolean,
       default: true,
       nullable: false,
-      env: 'PRETTY_PRINT_LOG',
-    },
+      env: 'PRETTY_PRINT_LOG'
+    }
   },
   db: {
     user: {
@@ -78,6 +78,4 @@ const config = convict({
   }
 });
 
-export {
-  config
-};
+export { config };

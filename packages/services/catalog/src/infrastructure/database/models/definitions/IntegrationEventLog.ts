@@ -1,8 +1,7 @@
-import { AllowNull, Column, DataType, PrimaryKey, Table } from 'sequelize-typescript';
-import { BaseModel } from './Base';
+import { AllowNull, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript';
 
 @Table({ tableName: 'integration_event_logs', underscored: true, freezeTableName: true })
-export class IntegrationEventLog extends BaseModel {
+export class IntegrationEventLog extends Model {
   @AllowNull(false)
   @PrimaryKey
   @Column({

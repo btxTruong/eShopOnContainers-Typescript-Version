@@ -10,7 +10,6 @@ start()
   .then((res) => {
     logger.info(`The app has started successfully ${JSON.stringify(res)}}`);
   })
-  .catch((error) => errorHandler.handleError(
-      new AppError('startup-failure', error.message, 500, false, error)
-    )
+  .catch((error) =>
+    errorHandler.handleError(new AppError('startup-failure', error.message, 500, false, error))
   );

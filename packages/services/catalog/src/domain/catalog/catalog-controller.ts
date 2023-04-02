@@ -1,16 +1,20 @@
-import express from 'express';
+import { config } from '@config';
 import {
   createCatalogUC,
   deleteCatalogUC,
-  getCatalogUC, listCatalogBrandUC, listCatalogByBrandUC,
+  getCatalogUC,
+  listCatalogBrandUC,
+  listCatalogByBrandUC,
   listCatalogByTypeAndBrandUC,
   listCatalogs,
-  listCatalogsByNameUC, listCatalogTypeUC, updateCatalogUC
+  listCatalogsByNameUC,
+  listCatalogTypeUC,
+  updateCatalogUC
 } from '@domain/catalog/catalog-use-case';
-import { asNumber } from '../../utils/type';
-import { Catalog } from '@infra/database/models/definitions/Catalog';
 import { AppError } from '@eshop/error-handler';
-import { config } from '@config';
+import { Catalog } from '@infra/database/models/definitions/Catalog';
+import { asNumber } from '@utils/type';
+import express from 'express';
 
 export async function listCatalogsCT(req: express.Request, res: express.Response) {
   const pageSize = asNumber(req.query.pageSize, config.get('app.paginationPageSize')) as number;
@@ -39,7 +43,12 @@ export async function listCatalogByTypeAndBrandCT(req: express.Request, res: exp
   const catalogTypeId = asNumber(req.params.catalogTypeId, undefined, true) as number;
   const catalogBrandId = asNumber(req.params.catalogBrandId);
 
-  const catalogs = await listCatalogByTypeAndBrandUC(pageSize, pageIndex, catalogTypeId, catalogBrandId);
+  const catalogs = await listCatalogByTypeAndBrandUC(
+    pageSize,
+    pageIndex,
+    catalogTypeId,
+    catalogBrandId
+  );
   res.status(200).json(catalogs);
 }
 
@@ -70,7 +79,7 @@ export async function updateCatalogCT(req: express.Request, res: express.Respons
   try {
     await updateCatalogUC(catalogToUpdate);
   } catch (error) {
-    new AppError('failed-to-update-catalog', error.message, 500, true, error);
+    throw new AppError('failed-to-update-catalog', error.message, 500, true, error);
   }
 }
 
@@ -82,7 +91,7 @@ export async function createCatalogCT(req: express.Request, res: express.Respons
     await createCatalogUC(catalogToCreate);
     res.status(200);
   } catch (error) {
-    new AppError('failed-to-create-catalog', error.message, 500, true, error);
+    throw new AppError('failed-to-create-catalog', error.message, 500, true, error);
   }
 }
 
@@ -92,6 +101,6 @@ export async function deleteCatalogCT(req: express.Request, res: express.Respons
     await deleteCatalogUC(catalogId);
     res.status(200);
   } catch (error) {
-    new AppError('failed-to-delete-catalog', error.message, 500, true, error);
+    throw new AppError('failed-to-delete-catalog', error.message, 500, true, error);
   }
 }

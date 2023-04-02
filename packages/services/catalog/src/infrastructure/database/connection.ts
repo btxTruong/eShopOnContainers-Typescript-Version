@@ -1,8 +1,8 @@
 import { config } from '@config';
 import { logger } from '@eshop/logger';
 import { modelsArray } from '@infra/database/models';
-import { Sequelize } from 'sequelize-typescript';
 import cls from 'cls-hooked';
+import { Sequelize } from 'sequelize-typescript';
 
 let dbConn: Sequelize;
 
@@ -28,8 +28,8 @@ export default function getDBConn() {
           max: 10,
           min: 0,
           acquire: 30000,
-          idle: 10000,
-        },
+          idle: 10000
+        }
       }
     );
   }

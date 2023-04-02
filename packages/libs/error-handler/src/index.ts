@@ -1,7 +1,7 @@
-import * as util from 'util';
+import { logger } from '@eshop/logger';
 import * as Http from 'http';
 import { createHttpTerminator } from 'http-terminator';
-import { logger } from '@eshop/logger';
+import * as util from 'util';
 
 let APP_NAME;
 let httpServerRef: Http.Server;
@@ -66,16 +66,12 @@ export const errorHandler = {
     });
 
     process.on('SIGTERM', async () => {
-      logger.error(
-        'App received SIGTERM event, try to gracefully close the server'
-      );
+      logger.error('App received SIGTERM event, try to gracefully close the server');
       await terminateHttpServerAndExit();
     });
 
     process.on('SIGINT', async () => {
-      logger.error(
-        'App received SIGINT event, try to gracefully close the server'
-      );
+      logger.error('App received SIGINT event, try to gracefully close the server');
       await terminateHttpServerAndExit();
     });
   },
@@ -95,5 +91,5 @@ export const errorHandler = {
       process.stdout.write(JSON.stringify(handlingError));
       process.stdout.write(JSON.stringify(errorToHandle));
     }
-  },
+  }
 };

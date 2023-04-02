@@ -1,49 +1,23 @@
 {
+  "extends": "@eshop/tsconfig/base.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "sourceMap": true,
-    "declaration": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "pretty": true,
     "outDir": "dist",
-    "moduleResolution": "node",
-
-    "lib": [
-      "es2017"
-    ],
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@infra/*": [
-        "src/infrastructure/*"
-      ],
-      "@config": [
-        "src/config.ts"
-      ],
-      "@entry-point/*": [
-        "src/entry-points/*"
-      ],
-      "@domain/*": [
-        "src/domain/*"
-      ],
-      "@swagger-document": [
-        "src/swagger.json"
-      ]
+      "@infra/*": ["src/infrastructure/*"],
+      "@config": ["src/config.ts"],
+      "@entry-point/*": ["src/entry-points/*"],
+      "@domain/*": ["src/domain/*"],
+      "@swagger-document": ["src/swagger.json"],
+      "@utils/*": ["src/utils/*"],
     }
   },
+
   "include": [
     "src"
   ],
   "exclude": [
-    "node_modules",
-    "examples",
-    "test"
+    "node_modules"
   ],
   "ts-node": {
     "transpileOnly": true

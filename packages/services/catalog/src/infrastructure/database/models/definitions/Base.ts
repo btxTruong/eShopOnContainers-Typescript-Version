@@ -1,12 +1,4 @@
-import {
-  AllowNull,
-  Column,
-  DataType,
-  Model,
-  PrimaryKey,
-  Sequelize,
-  Table
-} from 'sequelize-typescript';
+import { AllowNull, Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript';
 
 @Table({ underscored: true, freezeTableName: true })
 export class BaseModel extends Model {
@@ -14,7 +6,7 @@ export class BaseModel extends Model {
   @PrimaryKey
   @Column({
     primaryKey: true,
-    defaultValue: Sequelize.fn('uuid_generate_v4'),
+    autoIncrement: true,
     type: DataType.INTEGER
   })
   declare id: number; // we have to use declare

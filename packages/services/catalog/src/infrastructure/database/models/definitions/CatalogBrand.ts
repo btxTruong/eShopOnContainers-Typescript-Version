@@ -1,4 +1,5 @@
 import { AllowNull, Column, DataType, Table } from 'sequelize-typescript';
+
 import { BaseModel } from './Base';
 
 @Table({ tableName: 'catalog_brands' })

@@ -1,6 +1,6 @@
 import express from 'express';
-import { catalogRouter } from './catalog-route';
 
+import { catalogRouter } from './catalog-route';
 
 const apiV1Route = express.Router();
 
