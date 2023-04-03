@@ -26,3 +26,14 @@ To answer the question we will ask:
 
 That is a nightmare to correct the path.
 
+# References
+
+https://monorepo.tools/
+
+https://www.linkedin.com/pulse/pros-cons-monorepo-right-your-team-steven-francis/
+
+https://medhatdawoud.net/blog/using-monorepos-is-not-that-bad-case-study
+
+https://creotip.io/posts/nx-monorepo-running-microservices-locally-with-docker-kubernetes
+
+https://michalzalecki.com/solve-code-sharing-and-setup-project-with-lerna-and-monorepo/
