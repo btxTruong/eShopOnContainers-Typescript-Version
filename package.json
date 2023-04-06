@@ -13,7 +13,7 @@
     "-------------------- test -------------------": "",
     "test": "turbo run test",
     "-------------------- lint -------------------": "",
-    "lint": "turbo run lint --force",
+    "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix"
   },
   "author": "Truong Bui",
