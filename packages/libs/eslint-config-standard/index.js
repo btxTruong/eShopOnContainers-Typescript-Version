@@ -12,7 +12,9 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 2021,
-    sourceType: 'module'
+    sourceType: 'module',
+    project: [`tsconfig.json`],
+    tsconfigRootDir: '.', // use '.' as relative path for each project
   },
   plugins: ['prettier', '@typescript-eslint', 'simple-import-sort'],
   rules: {

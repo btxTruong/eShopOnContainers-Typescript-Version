@@ -1,5 +1,5 @@
 {
-  "extends": "@eshop/tsconfig/base.json",
+  "extends": "@eshop/tsconfig/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist"
   },

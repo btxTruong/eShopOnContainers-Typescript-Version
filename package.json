@@ -6,27 +6,27 @@
   "scripts": {
     "prepare": "husky install",
     "-------------------- build -------------------": "",
-    "build": "lerna run build",
+    "build": "turbo run build",
     "-------------------- package management -------------------": "",
     "package:check:root": "ncu -u",
-    "package:check": "lerna run package:check",
+    "package:check": "turbo run package:check",
     "-------------------- test -------------------": "",
-    "test": "lerna run test",
+    "test": "turbo run test",
     "-------------------- lint -------------------": "",
-    "lint": "lerna run lint",
-    "lint:fix": "lerna run lint:fix"
+    "lint": "turbo run lint --force",
+    "lint:fix": "turbo run lint:fix"
   },
   "author": "Truong Bui",
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "eslint": "8.37.0",
     "husky": "8.0.3",
-    "lerna": "6.6.1",
     "npm-check-updates": "16.10.0",
     "prettier": "2.8.7",
+    "turbo": "1.8.8",
     "typescript": "5.0.3",
-    "yarn": "1.22.19",
-    "eslint": "8.37.0"
+    "yarn": "1.22.19"
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [

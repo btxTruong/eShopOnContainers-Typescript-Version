@@ -1,5 +1,5 @@
 {
-  "extends": "@eshop/tsconfig/base.json",
+  "extends": "@eshop/tsconfig/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": ".",
@@ -9,7 +9,7 @@
       "@entry-point/*": ["src/entry-points/*"],
       "@domain/*": ["src/domain/*"],
       "@swagger-document": ["src/swagger.json"],
-      "@utils/*": ["src/utils/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
 

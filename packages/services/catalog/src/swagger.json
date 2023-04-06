@@ -11,11 +11,17 @@
       "description": "Development server"
     }
   ],
+  "tags": [
+    {
+      "name": "Infra"
+    }
+  ],
   "paths": {
     "/live": {
       "get": {
         "summary": "Get live status",
         "description": "Get live status",
+        "tags": ["Infra"],
         "responses": {
           "200": {
             "description": "Successful",
