@@ -23,7 +23,7 @@
     "ajv": "8.12.0"
   },
   "devDependencies": {
-    "@eshop/eslint-config-standard": "*",
-    "@eshop/tsconfig": "*"
+    "@eshop/eslint-config-standard": "workspace:*",
+    "@eshop/tsconfig": "workspace:*"
   }
 }

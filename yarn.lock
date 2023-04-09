@@ -457,11 +457,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eshop/catalog@workspace:packages/services/catalog"
   dependencies:
-    "@eshop/error-handler": "*"
-    "@eshop/eslint-config-standard": "*"
-    "@eshop/logger": "*"
-    "@eshop/tsconfig": "*"
-    "@eshop/validator": "*"
+    "@eshop/error-handler": "workspace:*"
+    "@eshop/eslint-config-standard": "workspace:*"
+    "@eshop/logger": "workspace:*"
+    "@eshop/tsconfig": "workspace:*"
+    "@eshop/validator": "workspace:*"
     "@sinclair/typebox": 0.26.8
     "@types/cls-hooked": 4.3.3
     "@types/convict": 6.1.1
@@ -493,19 +493,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eshop/error-handler@*, @eshop/error-handler@workspace:packages/libs/error-handler":
+"@eshop/error-handler@workspace:*, @eshop/error-handler@workspace:packages/libs/error-handler":
   version: 0.0.0-use.local
   resolution: "@eshop/error-handler@workspace:packages/libs/error-handler"
   dependencies:
-    "@eshop/eslint-config-standard": "*"
-    "@eshop/logger": "*"
-    "@eshop/tsconfig": "*"
+    "@eshop/eslint-config-standard": "workspace:*"
+    "@eshop/logger": "workspace:*"
+    "@eshop/tsconfig": "workspace:*"
     "@types/node": 18.15.11
     http-terminator: 3.2.0
   languageName: unknown
   linkType: soft
 
-"@eshop/eslint-config-standard@*, @eshop/eslint-config-standard@workspace:packages/libs/eslint-config-standard":
+"@eshop/eslint-config-standard@workspace:*, @eshop/eslint-config-standard@workspace:packages/libs/eslint-config-standard":
   version: 0.0.0-use.local
   resolution: "@eshop/eslint-config-standard@workspace:packages/libs/eslint-config-standard"
   dependencies:
@@ -520,12 +520,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eshop/logger@*, @eshop/logger@workspace:packages/libs/logger":
+"@eshop/logger@workspace:*, @eshop/logger@workspace:packages/libs/logger":
   version: 0.0.0-use.local
   resolution: "@eshop/logger@workspace:packages/libs/logger"
   dependencies:
-    "@eshop/eslint-config-standard": "*"
-    "@eshop/tsconfig": "*"
+    "@eshop/eslint-config-standard": "workspace:*"
+    "@eshop/tsconfig": "workspace:*"
     pino: 8.11.0
     pino-pretty: 10.0.0
   languageName: unknown
@@ -545,18 +545,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eshop/tsconfig@*, @eshop/tsconfig@workspace:packages/libs/tsconfig":
+"@eshop/tsconfig@workspace:*, @eshop/tsconfig@workspace:packages/libs/tsconfig":
   version: 0.0.0-use.local
   resolution: "@eshop/tsconfig@workspace:packages/libs/tsconfig"
   languageName: unknown
   linkType: soft
 
-"@eshop/validator@*, @eshop/validator@workspace:packages/libs/validator":
+"@eshop/validator@workspace:*, @eshop/validator@workspace:packages/libs/validator":
   version: 0.0.0-use.local
   resolution: "@eshop/validator@workspace:packages/libs/validator"
   dependencies:
-    "@eshop/eslint-config-standard": "*"
-    "@eshop/tsconfig": "*"
+    "@eshop/eslint-config-standard": "workspace:*"
+    "@eshop/tsconfig": "workspace:*"
     ajv: 8.12.0
   languageName: unknown
   linkType: soft
@@ -565,7 +565,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eshop/web-spa@workspace:packages/web-apps/web-spa"
   dependencies:
-    "@eshop/eslint-config-standard": "*"
+    "@eshop/eslint-config-standard": "workspace:*"
     "@types/react": 18.0.32
     "@types/react-dom": 18.0.11
     "@vitejs/plugin-react": 3.1.0
