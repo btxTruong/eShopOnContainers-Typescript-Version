@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Eshop built on container based on .NET project",
   "main": "index.js",
+  "engines": {
+    "node": ">=18.15.0",
+    "yarn": ">=3.5.0"
+  },
   "scripts": {
     "prepare": "husky install",
     "-------------------- build -------------------": "",
@@ -28,7 +32,7 @@
     "typescript": "5.0.3",
     "yarn": "1.22.19"
   },
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@3.5.0",
   "workspaces": [
     "packages/libs/*",
     "packages/services/*",

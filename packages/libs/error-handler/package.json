@@ -20,12 +20,12 @@
   "author": "Truong Bui",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "18.15.11",
+    "@eshop/eslint-config-standard": "*",
     "@eshop/tsconfig": "*",
-    "@eshop/eslint-config-standard": "*"
+    "@types/node": "18.15.11"
   },
   "dependencies": {
-    "http-terminator": "3.2.0",
-    "@eshop/logger": "*"
+    "@eshop/logger": "*",
+    "http-terminator": "3.2.0"
   }
 }
