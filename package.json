@@ -1,0 +1,41 @@
+{
+  "name": "@eshop/monorepo",
+  "version": "0.0.1",
+  "description": "Eshop built on container based on .NET project",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.15.0",
+    "yarn": ">=3.5.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "-------------------- build -------------------": "",
+    "build": "turbo run build",
+    "-------------------- package management -------------------": "",
+    "package:check:root": "ncu -u",
+    "package:check": "turbo run package:check",
+    "-------------------- test -------------------": "",
+    "test": "turbo run test",
+    "-------------------- lint -------------------": "",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix"
+  },
+  "author": "Truong Bui",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "8.37.0",
+    "husky": "8.0.3",
+    "npm-check-updates": "16.10.0",
+    "prettier": "2.8.7",
+    "turbo": "1.8.8",
+    "typescript": "5.0.3",
+    "yarn": "1.22.19"
+  },
+  "packageManager": "yarn@3.5.0",
+  "workspaces": [
+    "packages/libs/*",
+    "packages/services/*",
+    "packages/web-apps/*"
+  ]
+}

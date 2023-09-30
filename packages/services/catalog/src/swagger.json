@@ -1,0 +1,46 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Eshop",
+    "description": "API for eShop",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:7000",
+      "description": "Development server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Infra"
+    }
+  ],
+  "paths": {
+    "/live": {
+      "get": {
+        "summary": "Get live status",
+        "description": "Get live status",
+        "tags": ["Infra"],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "yes"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "extends": "@eshop/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@infra/*": ["src/infrastructure/*"],
+      "@config": ["src/config.ts"],
+      "@entry-point/*": ["src/entry-points/*"],
+      "@domain/*": ["src/domain/*"],
+      "@swagger-document": ["src/swagger.json"],
+      "@utils/*": ["src/utils/*"]
+    }
+  },
+
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "ts-node": {
+    "transpileOnly": true
+  }
+}

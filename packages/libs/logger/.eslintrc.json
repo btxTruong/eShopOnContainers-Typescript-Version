@@ -1,0 +1,4 @@
+{
+  "root": true,
+  "extends": [ "@eshop/eslint-config-standard" ]
+}
